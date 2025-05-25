@@ -34,8 +34,8 @@ In this example, the Rust client uses `tokio::select!` to concurrently:
 ## Prerequisites
 
 ### Server (Go)
-- Go 1.16+ (or a recent version)
-- Docker (if running the server in a container)
+- Go 1.24+ (or a recent version)
+- Docker 
 
 ### Client (Rust)
 - Rust toolchain (rustc, cargo)
