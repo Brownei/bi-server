@@ -1,0 +1,13 @@
+/home/brownson/Documents/rust/fast-server/target/debug/deps/libnix-34403e2d81871b70.rmeta: /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/lib.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/macros.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/errno.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/fcntl.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/mod.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/signal.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/sysinfo.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/time.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/unistd.rs
+
+/home/brownson/Documents/rust/fast-server/target/debug/deps/nix-34403e2d81871b70.d: /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/lib.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/macros.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/errno.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/fcntl.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/mod.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/signal.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/sysinfo.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/time.rs /home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/unistd.rs
+
+/home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/lib.rs:
+/home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/macros.rs:
+/home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/errno.rs:
+/home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/fcntl.rs:
+/home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/mod.rs:
+/home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/signal.rs:
+/home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/sysinfo.rs:
+/home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/sys/time.rs:
+/home/brownson/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nix-0.30.1/src/unistd.rs:

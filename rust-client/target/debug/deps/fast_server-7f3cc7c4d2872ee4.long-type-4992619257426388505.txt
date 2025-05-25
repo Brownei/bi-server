@@ -1,0 +1,1 @@
+fn() -> std::io::Stdin {std::io::stdin}: AsyncRead

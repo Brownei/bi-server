@@ -1,0 +1,1 @@
+tokio::io::BufReader<fn() -> std::io::Stdin {std::io::stdin}>
