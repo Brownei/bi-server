@@ -1,1 +1,33 @@
-/target
+# ====================================
+# OS-generated files
+# ====================================
+.DS_Store
+Thumbs.db
+
+# ====================================
+# Editor settings
+# ====================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ====================================
+# Rust (rust-client/)
+# ====================================
+/rust-client/target/
+**/*.rs.bk
+/rust-client/Cargo.lock
+/rust-client/*.log
+
+# ====================================
+# Go (go-server/)
+# ====================================
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out
+*.test
+/go-server/vendor/
