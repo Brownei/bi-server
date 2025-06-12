@@ -1,7 +1,8 @@
-#!/bin/bash
+  #!/bin/bash
 
 set -e
 
+run() {
 # Postgres container configuration
 CONTAINER_NAME="tcp_db"
 IMAGE_NAME="postgres:alpine"
@@ -84,4 +85,37 @@ echo "Running Rust client with cargo..."
 pushd "$RUST_CLIENT_DIR" > /dev/null
 cargo run
 popd > /dev/null
+}
 
+clean() {
+  # Names
+POSTGRES_CONTAINER="tcp_db"
+GO_CONTAINER="go_server"
+GO_IMAGE="go-server"
+NETWORK_NAME="tcp_network"
+
+echo "Stopping and removing containers..."
+docker rm -f "$POSTGRES_CONTAINER" || echo "Postgres container not running."
+docker rm -f "$GO_CONTAINER" || echo "Go server container not running."
+
+echo "Removing Docker image for Go server..."
+docker rmi -f "$GO_IMAGE" || echo "Go server image not found."
+
+echo "Removing Docker network if exists..."
+docker network rm "$NETWORK_NAME" || echo "Network '$NETWORK_NAME' not found."
+
+echo "Cleanup complete."
+}
+
+case "$1" in 
+  run)
+    run 
+    exit 0
+    ;;
+  clean)
+    clean 
+    exit 0
+    ;;
+esac
+
+echo "Invalid command: $1"
