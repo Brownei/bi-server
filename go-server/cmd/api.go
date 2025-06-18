@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"log"
 	"net"
@@ -9,6 +10,7 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/brownei/fast-server/db"
 	"gorm.io/gorm"
 )
 
@@ -44,31 +46,58 @@ func (s *Server) Run() {
 
 func handleConnection(s *Server, conn net.Conn, message chan string) {
 	defer conn.Close()
+	var existingUser db.User
 	reader := bufio.NewReader(conn)
 	writer := bufio.NewWriter(conn)
+	client := &Client{}
 
 	responses := []string{}
 	questions := []string{
-		"Welcome, Please enter your name: ",
 		"Enter your age: ",
 		"What do you like?: ",
 	}
 
-	for _, question := range questions {
-		writer.WriteString(question + "\n")
-		writer.Flush()
-		response, _ := reader.ReadString('\n')
+	writer.WriteString("Welcome, Please enter your name: " + "\n")
+	writer.Flush()
+	nameResponse, _ := reader.ReadString('\n')
 
-		responses = append(responses, response)
+	result := s.DB.First(&existingUser, "name = ?", nameResponse)
+
+	fmt.Print(errors.Is(result.Error, gorm.ErrRecordNotFound))
+
+	if errors.Is(result.Error, gorm.ErrRecordNotFound) {
+		for _, question := range questions {
+			writer.WriteString(question + "\n")
+			writer.Flush()
+			response, _ := reader.ReadString('\n')
+
+			responses = append(responses, response)
+		}
+
+		welcomeMessage := fmt.Sprintf("Bonjour Mr: %s", nameResponse)
+		writer.WriteString(welcomeMessage)
+		writer.Flush()
+		log.Printf("%s has joined the server", strings.TrimSpace(nameResponse))
+		nAge, _ := strconv.Atoi(responses[0])
+
+		client = NewClient(conn.RemoteAddr().String(), nameResponse, int8(nAge), responses[1])
+
+		s.DB.Create(&db.User{
+			Name:  nameResponse,
+			Likes: responses[1],
+			Age:   uint16(nAge),
+		})
+
+	} else {
+		welcomeMessage := fmt.Sprintf("Bonjour Mr: %s", nameResponse)
+		writer.WriteString(welcomeMessage)
+		writer.Flush()
+		log.Printf("%s has joined the server", strings.TrimSpace(nameResponse))
+
+		client = NewClient(conn.RemoteAddr().String(), nameResponse, int8(existingUser.Age), existingUser.Likes)
+
 	}
 
-	welcomeMessage := fmt.Sprintf("Bonjour Mr: %s", responses[0])
-	writer.WriteString(welcomeMessage)
-	writer.Flush()
-	log.Printf("%s has joined the server", strings.TrimSpace(responses[0]))
-	nAge, _ := strconv.Atoi(responses[1])
-
-	client := NewClient(conn.RemoteAddr().String(), responses[0], int8(nAge), responses[2])
 	msg, err := reader.ReadString('\n')
 	if err != nil {
 		fmt.Println("Disconnected:", err)

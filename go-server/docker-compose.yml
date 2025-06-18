@@ -22,9 +22,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydb
+      POSTGRES_USER: tcp_db
+      POSTGRES_PASSWORD: tcp_db
+      POSTGRES_DB: tcp_db
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
